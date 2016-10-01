@@ -8,4 +8,4 @@ import sys
 
 if __name__ == '__main__':
     # just for demo
-    subprocess.run(['tree'] + sys.argv[1:])
+    subprocess.run(['tree'] + sys.argv[1:]);
