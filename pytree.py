@@ -2,7 +2,6 @@
 import sys
 import re
 import os
-import unicodedata
 path = "."
 fileCounter = 0
 dirCounter = 0
@@ -16,12 +15,12 @@ def printer(strs, files, level, final):  # Magic here
 
 
 def stupidSort(name):  # As the function name says
-    punctuation = '_,;:?"\''
+    punctuation = '_,;:?"\''  # blablabla
     return re.sub(r'[{}]+'.format(punctuation), '', name).strip().lower()
 
 
 def testSaysFunctionIsTooComplex(path):  # Also magic this function
-    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=stupidSort)
+    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=stupidSort)  # Seems complex, right?
 
 
 def test(subpath, level, p):  # Magic there
