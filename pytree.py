@@ -13,9 +13,13 @@ def printer(strs, files, level, final):  # Magic here
     print(pre + "└── " + strs) if (strs == files[len(files) - 1]) else print(pre + "├── " + strs)
 
 
+def testFunctionisTooComplex(path):  # Also magic this function
+    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=str.lower)
+
+
 def test(subpath, level, p):  # Magic there
     global fileCounter, dirCounter
-    files = sorted([i for i in os.listdir(subpath) if i[0] != '.'])
+    files = testFunctionisTooComplex(subpath)
     for i in files:
         if os.path.isdir(subpath + "/" + i) is True:
             dirCounter += 1
