@@ -12,12 +12,10 @@ def printer(strs, files, level, final):  # Magic here
         pre = pre + "│   " if final[i] == 1 else pre + "    "
     print(pre + "└── " + strs) if (strs == files[len(files) - 1]) else print(pre + "├── " + strs)
 
-def gg(subpath):
-    return sorted([i for i in os.listdir(subpath) if i[0] != '.'])
 
 def test(subpath, level, p):  # Magic there
     global fileCounter, dirCounter
-    files = gg(subpath)
+    files = sorted([i for i in os.listdir(subpath) if i[0] != '.'])
     for i in files:
         if os.path.isdir(subpath + "/" + i) is True:
             dirCounter += 1
