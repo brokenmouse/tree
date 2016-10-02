@@ -17,7 +17,7 @@ def printer(strs, files, level, final):  # Magic here
 def stupidSort(name):  # As the function name says
     punctuation = '_,;:?"\''  # blablabla
     return re.sub(r'[{}]+'.format(punctuation), '', name).strip().lower()
-    
+
 
 def test(subpath, level, p):  # Magic there
     global fileCounter, dirCounter
