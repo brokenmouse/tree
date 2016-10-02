@@ -17,7 +17,7 @@ def printer(strs, files, level, final):  # Magic here
 
 def stupidSort(name):  # As the function name says
     punctuation = '_,;:?"\''
-    return re.sub(r'[{}] + '.format(punctuation), '', name).strip().lower()
+    return re.sub(r'[{}]+'.format(punctuation), '', name).strip().lower()
 
 
 def testSaysFunctionIsTooComplex(path):  # Also magic this function
