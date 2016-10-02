@@ -17,15 +17,11 @@ def printer(strs, files, level, final):  # Magic here
 def stupidSort(name):  # As the function name says
     punctuation = '_,;:?"\''  # blablabla
     return re.sub(r'[{}]+'.format(punctuation), '', name).strip().lower()
-
-
-def testSaysFunctionIsTooComplex(path):  # Also magic this function
-    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=stupidSort)  # Seems complex, right?
-
+    
 
 def test(subpath, level, p):  # Magic there
     global fileCounter, dirCounter
-    files = testSaysFunctionIsTooComplex(subpath)
+    files = sorted([i for i in os.listdir(subpath) if i[0] != '.'], key=stupidSort)
     for i in files:
         if os.path.isdir(subpath + "/" + i) is True:
             dirCounter += 1
