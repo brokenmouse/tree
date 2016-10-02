@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import sys
+import re
 import os
+import unicodedata
 path = "."
 fileCounter = 0
 dirCounter = 0
@@ -13,13 +15,18 @@ def printer(strs, files, level, final):  # Magic here
     print(pre + "└── " + strs) if (strs == files[len(files) - 1]) else print(pre + "├── " + strs)
 
 
-def testFunctionisTooComplex(path):  # Also magic this function
-    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=str.lower)
+def stupidSort(name):  # As the function name says
+    punctuation = '_,;:?"\''
+    return re.sub(r'[{}] + '.format(punctuation), '', name).strip().lower()
+
+
+def testSaysFunctionIsTooComplex(path):  # Also magic this function
+    return sorted([i for i in os.listdir(path) if i[0] != '.'], key=stupidSort)
 
 
 def test(subpath, level, p):  # Magic there
     global fileCounter, dirCounter
-    files = testFunctionisTooComplex(subpath)
+    files = testSaysFunctionIsTooComplex(subpath)
     for i in files:
         if os.path.isdir(subpath + "/" + i) is True:
             dirCounter += 1
